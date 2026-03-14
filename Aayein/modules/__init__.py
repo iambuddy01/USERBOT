@@ -1,14 +1,8 @@
-import os
 import importlib
+import pkgutil
 
-print("📦 Loading Modules from Aayein/modules")
+package = __name__
 
-BASE_DIR = os.path.dirname(__file__)
-
-for file in os.listdir(BASE_DIR):
-    if file.endswith(".py") and not file.startswith("__"):
-        module = file[:-3]
-
-        importlib.import_module(f"Aayein.modules.{module}")
-
-        print(f"✅ Loaded → Aayein.modules.{module}")
+for _, module_name, _ in pkgutil.walk_packages(__path__, package + "."):
+    importlib.import_module(module_name)
+    print(f"✅ Loaded → {module_name}")
