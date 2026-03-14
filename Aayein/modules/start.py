@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram.enums import ParseMode, ButtonStyles
+from pyrogram.enums import ButtonStyle, ParseMode
 
 
 @Client.on_message(filters.command("start") & filters.private)
@@ -11,14 +11,14 @@ async def start_handler(client, message):
                 InlineKeyboardButton(
                     "➕ Add Account",
                     callback_data="add_account",
-                    style=ButtonStyles.PRIMARY
+                    style=ButtonStyle.PRIMARY
                 )
             ],
             [
                 InlineKeyboardButton(
                     "❌ Delete Account",
                     callback_data="delete_account",
-                    style=ButtonStyles.SUCCESS
+                    style=ButtonStyle.SUCCESS
                 )
             ]
         ]
