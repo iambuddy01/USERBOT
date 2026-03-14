@@ -1,6 +1,8 @@
-from . import bot
+from Aayein.bot import dev
 
 print("🚀 Aayein Bot Started Successfully")
-print("📦 Loading Modules from Aayein/modules")
+print("📦 Loading Modules...")
 
-bot.run()
+load_modules()
+
+dev.run()
