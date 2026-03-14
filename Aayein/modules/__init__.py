@@ -1,17 +1,14 @@
 import os
 import importlib
 
-def load_modules(base_package: str):
-    base_dir = os.path.dirname(__file__)
+print("📦 Loading Modules from Aayein/modules")
 
-    for file in os.listdir(base_dir):
-        if file.endswith(".py") and not file.startswith("__"):
+BASE_DIR = os.path.dirname(__file__)
 
-            module_name = file[:-3]
-            full_module = f"{base_package}.modules.{module_name}"
+for file in os.listdir(BASE_DIR):
+    if file.endswith(".py") and not file.startswith("__"):
+        module = file[:-3]
 
-            importlib.import_module(full_module)
+        importlib.import_module(f"Aayein.modules.{module}")
 
-            print(f"✅ Loaded → {full_module}")
-
-load_modules("Aayein")
+        print(f"✅ Loaded → Aayein.modules.{module}")
