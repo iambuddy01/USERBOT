@@ -1,19 +1,31 @@
-from pyrogram import filters
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from Aayein import bot
+from pyrogram.enums import ParseMode, ButtonStyles
 
 
-@bot.on_message(filters.command("start"))
+@Client.on_message(filters.command("start") & filters.private)
 async def start_handler(client, message):
-
     buttons = InlineKeyboardMarkup(
         [
-            [InlineKeyboardButton("➕ Add Account", callback_data="add_account")],
-            [InlineKeyboardButton("❌ Delete Account", callback_data="delete_account")]
+            [
+                InlineKeyboardButton(
+                    "➕ Add Account",
+                    callback_data="add_account",
+                    style=ButtonStyles.PRIMARY
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "❌ Delete Account",
+                    callback_data="delete_account",
+                    style=ButtonStyles.SUCCESS
+                )
+            ]
         ]
     )
 
     await message.reply_text(
-        "⚡ **Welcome to Account Manager Bot**",
-        reply_markup=buttons
+        "⚡ <b>Account Manager Panel</b>\n\nChoose an option:",
+        reply_markup=buttons,
+        parse_mode=ParseMode.HTML
     )
