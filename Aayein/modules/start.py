@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums import ButtonStyle, ParseMode
-from Aayein.bot import dev
+from Aayein.modules.bot.bot import dev
 
 
 @dev.on_message(filters.command("start") & filters.private)
