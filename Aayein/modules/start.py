@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from Aaiyen.modules.bot import dev
+from modules.bot import dev
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums import ButtonStyle, ParseMode
 
