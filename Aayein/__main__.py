@@ -1,8 +1,11 @@
-from Aayein.bot import dev
+import importlib
+import pkgutil
+
+from Aayein import dev
 
 print("🚀 Aayein Bot Started Successfully")
 print("📦 Loading Modules...")
 
-load_modules()
+import Aayein.modules
 
 dev.run()
