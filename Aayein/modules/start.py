@@ -1,10 +1,10 @@
 from pyrogram import Client, filters
-from modules.bot import dev
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums import ButtonStyle, ParseMode
+from Aayein.bot import dev
 
 
-@Client.on_message(filters.command("start") & filters.private)
+@dev.on_message(filters.command("start") & filters.private)
 async def start_handler(client, message):
     buttons = InlineKeyboardMarkup(
         [
